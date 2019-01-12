@@ -11,6 +11,7 @@ def identity_function(x):
 
 def init_network():
 	network = {}		# empty dictionary
+	# define new keys and corresponding values
 	network['W1'] = np.array([[0.1, 0.3, 0.5], [0.2, 0.4, 0.6]])
 	network['b1'] = np.array([0.1, 0.2, 0.3])
 	network['W2'] = np.array([[0.1, 0.4], [0.2, 0.5], [0.3, 0.6]])
