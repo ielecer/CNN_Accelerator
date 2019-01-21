@@ -1,6 +1,27 @@
 #include <stdio.h>
 #include "matmul.h"
 
+// How to define a pointer of 2D array:
+// https://zhidao.baidu.com/question/161985206.html.
+void mat_trans(int *data_in, int (*data_out)[COLUMN], char row, char column) {
+
+    // Transform 1D array to 2D array/matrix.
+    for(char i = 0; i < row; i++) {
+        for(char j = 0; j < column; j++) {
+            data_out[i][j] = data_in[i * row + j];
+            data_out[i][j] = data_in[i * column + j];
+        }
+    }
+
+    for(char i = 0; i < row; i++) {
+        for(char j = 0; j < column; j++) {
+            printf("%d ", data_out[i][j]);
+        }
+        printf("\n");
+    }
+}
+
+// TODO: add mat_trans().
 // 2D matrix input in the form of 2D.
 void matmul_2D_0(void) {
     int a[2][2] = {{1, 2}, {3, 4}};
