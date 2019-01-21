@@ -1,0 +1,10 @@
+// Here, all the .c files are compiled into object (.o) files separately.
+gcc -c main.c -o main.o
+gcc -c matmul.c -o matmul.o
+
+// Then, all object files are linked together into an executable file.
+gcc main.o matmul.o -o myapp
+
+// Or you could do everything at once.
+gcc main.c matmul.c -o myapp
+
