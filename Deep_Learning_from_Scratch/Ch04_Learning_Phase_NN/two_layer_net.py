@@ -39,7 +39,7 @@ class TwoLayerNet:
 
 		return accuracy
 
-	def numerical_gradient(self, x, t):
+	def numerical_gradient_nn(self, x, t):
 		loss_W = lambda W: self.loss(x, t)
 
 		grads = {}
@@ -50,3 +50,20 @@ class TwoLayerNet:
 
 		return grads
 
+# # test class TwoLayerNet
+# net = TwoLayerNet(input_size=784, hidden_size=100, output_size=10)
+# print(net.params['W1'].shape)
+# print(net.params['b1'].shape)
+# print(net.params['W2'].shape)
+# print(net.params['b2'].shape)
+
+# x = np.random.rand(100, 784)	# virtual input data (100)
+# t = np.random.rand(100, 10)		# virtual correct tags (100)
+
+# # It costs some time to calculate numerical gradients (about 1min).
+# grads = net.numerical_gradient_nn(x, t) # calculate gradients
+
+# print(grads['W1'].shape)
+# print(grads['b1'].shape)
+# print(grads['W2'].shape)
+# print(grads['b2'].shape)
