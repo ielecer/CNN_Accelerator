@@ -1,3 +1,5 @@
+import numpy as np
+from collections import OrderedDict
 from layers import Relu, Sigmoid, Affine, SoftmaxWithLoss
 
 class TwoLayerNet:
@@ -20,14 +22,13 @@ class TwoLayerNet:
 
 		self.lastLayer = SoftmaxWithLoss()
 
-	# Forward propagation without loss function.
+	# Forward propagation.
 	def predict(self, x):
 		for layer in self.layers.values():
 			x = layer.forward(x)
 		
 		return x
 
-	# Forward propagation with loss function.
 	def loss(self, x, t):
 		y = self.predict(x)
 
@@ -42,6 +43,7 @@ class TwoLayerNet:
 
 		return accuracy
 
+	# # Numerical method to calculate gradient.
 	# def numerical_gradient(self, x, t):
 	# 	loss_W = lambda W: self.loss(x, t)
 
@@ -55,14 +57,14 @@ class TwoLayerNet:
 
 	# BP method to calculate gradient.
 	def gradient(self, x, t):
-		# forward
+		# FP.
 		self.loss(x, t)
 
-		# backward
+		# BP.
 		dout = 1
 		dout = self.lastLayer.backward(dout)
 
-		# Reverse the order of elements in list layers
+		# Reverse the order of elements in list layers.
 		layers = list(self.layers.values())
 		layers.reverse()
 
