@@ -1,0 +1,14 @@
+# Implement the whole forward propagation (FP) from the software level in Arm Cortex-A53 rather than FPGA,
+# and using Arm Cortex-A53 system timer/counter to access the comsuming time of specific algorithm
+arm_bare_0.0:	FP implementation in Arm Cortex-A53 (Include AXI_TIMER IP but not used)
+arm_bare_0.1:	FP implementation in Arm Cortex-A53 (Remove AXI_TIMER IP)
+
+# Test conv. and pooling IPs individually from HLS
+ip_test_0.0:	Test original IP cores generated from HLS
+# Put conv. and pooling layer into FPGA (Not optimized)
+soc_app_0.0:	Original SoC reference solution without timer
+soc_app_0.1:	Original SoC reference solution with timer
+
+# Put conv. and pooling layer into FPGA (Optimized)
+# TODO!
+soc_app_1.0:	Optimizing ...
